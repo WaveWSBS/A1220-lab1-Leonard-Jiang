@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+.env/
+
+# Build/test artifacts
+.coverage
+.pytest_cache/
+.mypy_cache/
+
+# Docs output
+docs/
+
+# OS files
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+COMMAND_API_OPENAI.txt
