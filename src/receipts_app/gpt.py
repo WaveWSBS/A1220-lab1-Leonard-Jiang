@@ -52,4 +52,29 @@ The output must be valid JSON.
             }
         ]
     )
-    return json.loads(response.choices[0].message.content)
+    data = json.loads(response.choices[0].message.content)
+    return normalize_amount_field(data)
+
+
+def normalize_amount_field(data):
+    """Normalize the "amount" field by stripping "$" and converting to float.
+
+    Args:
+        data (dict): Parsed receipt data from the language model.
+
+    Returns:
+        dict: Updated data with "amount" as a float when possible.
+
+    Assumptions:
+        The "amount" field is a number-like string or null.
+    """
+    amount = data.get("amount")
+    if amount is None:
+        return data
+    if isinstance(amount, str):
+        amount = amount.replace("$", "").strip()
+    try:
+        data["amount"] = float(amount)
+    except (TypeError, ValueError):
+        pass
+    return data
