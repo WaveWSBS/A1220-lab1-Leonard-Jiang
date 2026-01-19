@@ -23,11 +23,12 @@ export OPENAI_API_KEY="your_api_key_here"
 From the repository root:
 
 ```bash
-python3 src/receipts_app/main.py app/receipts --print
+PYTHONPATH=src python3 -m receipts_app.main app/receipts --print
 ```
 
 - The first argument is a directory path containing receipt images.
 - Use `--print` to output JSON to stdout.
+ - Alternatively, use `make run` (defaults to `app/receipts`).
 
 ## Notes
 - The default sample images are in `app/receipts`.

@@ -3,4 +3,4 @@
 DIR ?= ./receipts
 run:
 	echo "Running receipts app with directory: ${DIR}"
-	python3 src/receipts_app/main.py ${DIR} --print
+	PYTHONPATH=src python3 -m receipts_app.main ${DIR} --print
